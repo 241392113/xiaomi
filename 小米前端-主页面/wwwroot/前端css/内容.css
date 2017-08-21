@@ -1,0 +1,52 @@
+			#content{
+				width: 1226px;
+				height: 550px;
+				margin: 0 auto;
+			}
+			#content>span{
+				display: inline-block;
+				margin-left: 31px;
+			}
+			.content-1{
+				width: 280px;
+				height:500px;
+				background-color: white;
+			}
+			.content-img{
+				text-align: center;
+			}
+			h5{
+				width: 280px;
+				line-height: 40px;
+				/*background-color: red;*/
+				text-align: center;
+				color: orange;
+			}
+			.hali{
+				display: inline-block;
+				width: 220px;
+				height: 200px;
+				margin: 0px auto;
+				color: black;
+			}
+			.hali:hover{
+				color: orangered;
+			}
+			.hali p:nth-of-type(1){
+				color: darkgray;
+				font-size: 14px;
+			}
+			#content ul li{
+				border: 2px solid orangered;
+			}
+			.gengduo{
+				width: 100px;
+				line-height: 30px;
+				border: 1px solid orange;
+				text-align: center;
+				margin:  0 auto;
+			}
+			.gengduo:hover{
+				background-color: orangered;
+				color: white;
+			}

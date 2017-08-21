@@ -1,0 +1,116 @@
+			footer{
+				width: 1226px;
+				height: 500px;
+				margin: 0 auto;
+			}
+			.every{
+				position: relative;
+				height: 250px;
+			}
+			.service{
+				width: 100%;
+				line-height: 60px;
+				/*background-color: red;*/
+				border-bottom: 1px solid gray;
+			}
+			.service a{
+				display: inline-block;
+				width: calc(1226px / 5.068);
+				line-height: 10px;
+				text-align: center;
+				background-color: white;
+				border-right: 1px solid gray;
+				color: darkgray;
+				font-size: 16px;
+			}
+			.service a:hover{
+				color: orangered;
+			}
+			
+			.various{
+				display: inline-block;
+				width: 980px;
+				height: 150px;
+				/*background-color: rosybrown;*/
+				margin-top: 20px;
+				border-right: 1px solid gray;
+			}
+			.various ul{
+				width: 980px;
+				line-height: 40px;
+				background-color: red;
+				
+			}
+			.various ul li{
+				width: calc(980px / 5);
+				height: 40px;
+				/*background-color: green;*/
+				float: left;
+				list-style: none;
+				margin-left: -40px;
+			}
+			.various ul li a{
+				color: darkgrey;
+			}
+			
+			.consult{
+				display: inline-block;
+				width: 240px;
+				height: 150px;
+				/*background-color: red;*/
+				margin-top: 20px;
+				position: absolute;
+				right: 0;
+				text-align: center;
+			}
+			.consult p{
+				margin-top: -15px;
+			}
+			.consult p:nth-of-type(2){
+				margin-top: -20px;
+			}
+			.consult a{
+				display: inline-block;
+				width: 120px;
+				height: 40px;
+				border: 1px solid orange;
+				color: orange;
+				/*background-color: blue;*/
+			}
+			.consult a:hover{
+				background-color: orangered;
+				color: white;
+			}
+			.last{
+				width: 1226px;
+				height: 60px;
+				/*background-color: red;*/
+				position: relative;
+			}
+			.xiaomi{
+				list-style: none;
+				position: absolute;
+				top: 0;
+				left: 30px;
+			}
+			.xiaomi li{
+				float: left;
+			}
+			.xiaomi li a{
+				display: inline-block;
+				color: gray;
+			}
+			.xiaomi a:hover{
+				color: orangered;
+			}
+			.last-one{
+				width: 1226px;
+				color: darkgray;
+				font-size: 30px;
+				text-align: center;
+				margin-top: 30px;
+				font-family: '时尚中黑简体';
+				-moz-user-select: none;
+				-ms-user-select: none;
+				-webkit-user-select: none;
+			}

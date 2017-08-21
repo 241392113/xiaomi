@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+		<title>提问-小米官网</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="前端css/all.css"/>
+	</head>
+	<body>
+		<!-- 导航条 -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<div class="navbar-title" style="color: orangered;">
+						<span id="goBack" class="glyphicon glyphicon-chevron-left pull-left"></span>
+						小米官网-提问
+						<span id="home" class="glyphicon glyphicon-home pull-right"></span>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- 提问表单 -->
+		<div class="container">
+			<form action="/ask" method="post">
+				<!-- 提问输入框 -->
+				<div class="form-group">
+					<textarea class="form-control" name="content" rows="10" cols="" placeholder="请详细描述您提问的内容" ></textarea>
+				</div>
+				<!-- 提交按钮 -->
+				<input type="submit" class="btn btn-success form-control" value="提问" />
+			</form>
+		</div>
+		
+		<!-- 模态框（Modal）-->
+		<div class="modal fade" role="dialog" id="myModal">
+			 <div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">小米官网</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script src="bootstrap/js/jquery-3.1.1.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+	
+	$('#goBack').click(function(){
+		history.go(-1)
+	})
+	
+	$('#home').click(function(){
+		location.href = 'question.html'
+	})
+	
+	
+	$('form').submit(function(event){
+		event.preventDefault();
+		
+		var data = $(this).serialize()
+		if(data.length > 13){
+			$.post('/ask',data,function(resData){
+				$('.modal-body').text(resData.message);
+				$('#myModal').modal('show').on('hide.bs.modal',function(){
+					if(resData.code == 3){
+						location.href = 'question.html';
+					}
+				})
+			})
+		}else{
+			$('.modal-body').text('留言内容不能为空,请重新输入...');
+			$('#myModal').modal('show');
+		}
+		
+	})
+	
+	
+</script>

@@ -1,0 +1,34 @@
+	#underNav{
+			width: 100%;
+			height: 50px;
+			background-color: gainsboro;
+		}
+		#underNav>div{
+			width: 1226px;
+			height: 50px;
+			margin: 0 auto;
+			/*background-color: blue;*/
+			position: relative;
+		}
+		#underNav h4{
+			line-height: 50px;
+		}
+		#underNav ul{
+			position: absolute;
+			right: 0px;
+			top: 10px;
+		}
+		#underNav li{
+			float: left;
+			list-style: none;
+			width: 80px;
+			line-height: 30px;
+			text-align: center;
+			color: orangered;
+		}
+		#underNav li a{
+			color: black;
+		}
+		#underNav li a:hover{
+			color: orangered;
+		}

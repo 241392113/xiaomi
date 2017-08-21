@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+		<title>小米论坛</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="前端css/all.css"/>
+	</head>
+	<body>
+		<!-- 导航条 -->
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="row">
+					<a href="index.html" class="navbar-brand">小米官网-论坛</a>
+					<div class="navbar-title pull-right text-right">
+						<!-- 提问图标 -->
+						<span id="ask">
+							<span class="glyphicon glyphicon-plus"></span>
+							提问
+						</span>
+						<!--&#x3000; 一个中文汉字的宽度-->
+						<!-- 一个空格 space 大小 -->
+						&nbsp;&nbsp;&nbsp; 
+						<!-- 用户图标 -->
+						
+							<span id="user" class="dropdown-toggle" data-toggle="dropdown">
+								<span class="glyphicon glyphicon-user"></span>
+								<span></span>
+							</span>
+							
+						<!-- 下拉菜单 -->
+						<ul class="dropdown-menu dropdown-menu-right" style="min-width: 90px;">
+							<li><a href="userInfo.html" class="text-right">上传图片</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		<!-- 创建容器，展示所有问题 -->
+		<div class="container questions" style="font-size: 20px;">
+			
+		</div>
+	</body>
+</html>
+<script src="bootstrap/js/jquery-3.1.1.js"></script>
+<script src="bootstrap/js/jquery.cookie.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+	
+	
+//从本地缓存 cookie 中取出 petname 的值
+var username = $.cookie('username');
+
+//点击提问按钮
+$('#ask').click(function(){
+//	console.log(petname)
+	username? location.href = 'ask.html' : location.href = 'login.html';
+	
+})
+
+//判断有没有 petname 决定图片样式和行为
+if(username){
+	$('#user').find('span').last().text(username);
+}else{
+	$('#user').find('span').last().text('登录').end().end().removeAttr('data-toggle').click(function(){
+		location.href = 'login.html';
+	});
+}
+
+
+//获取首页数据
+
+$.get('/all',function(resData){
+//	console.log(resData);
+	//拼接html标签和上面要显示的内容
+	var htmlStr = '';
+	for(var i=0;i<resData.length;i++){
+		//采用的是 bootstrap 里面的多媒体对象
+		var question = resData[i];
+		//这是外层
+		htmlStr += '<div class="media" data-question="' + new Date(question.time).getTime() + '">'
+		//内层第一块,显示头像的地方 pull-left
+		htmlStr += '<div class="media-left"><a>'
+		//
+		htmlStr += '<img class="media-object" src="../uploads/'+ question.username + '.jpg" onerror="defaultHeaderImage(this)">'
+		htmlStr += '</a></div>'
+		//内层的第二块
+		htmlStr += '<div class="media-body">'
+		htmlStr += '<h4 class="media-heading">' + question.username + '</h4>'
+		htmlStr += question.content
+		htmlStr += '<div class="media-footing" style="font-size:16px">'+ dealTime(question.time) + '&#x3000;' +formatIP(question.ip) +'</div>'
+		htmlStr += '</div></div>'
+		
+		
+		//判断这个问题是否有人回答
+		if(question.answers){
+			//有人回答
+			for(var j=0;j<question.answers.length;j++){
+				var answer = question.answers[j];
+				
+				htmlStr += '<div style="height:80px">'
+				htmlStr += '<div style="position:relative;">'
+				htmlStr += '<h4 class="userI" style="position:absolute;top:-10px;right:75px">' + answer.username + '</h4>'
+				htmlStr += '<p style="position:absolute;top:25px;right:75px">' + answer.content + '</p>'
+				htmlStr += '<div style="position:absolute;top:50px;right:75px;font-size:16px">' + dealTime(answer.time) + '&#x3000;' + formatIP(answer.ip) + '</div>'
+				htmlStr += '<img style="position:absolute;right:0px;" src="../uploads/'+ answer.username + '.jpg" onerror="defaultHeaderImage(this)">'
+				htmlStr += '</div></div><hr>'
+			}
+		}
+	}
+	$('.questions').html(htmlStr);
+})
+
+
+//格式化时间的方法
+function dealTime(time){
+	//把字符串转化成时间对象
+	var now = new Date(time);
+	//获取年月日时分秒
+	var year = now.getFullYear();
+	var month = now.getMonth() + 1;
+	var day = now.getDate();
+	var hour = now.getHours();
+	var minute = now.getMinutes();
+	var second = now.getSeconds();
+	
+	month = month<10? '0'+ month : month;
+	day = day<10? '0'+ day : day;
+	hour = hour<10? '0'+ hour : hour;
+	minute = minute<10? '0' + minute : minute;
+	second = second<10? '0' + second : second;
+	
+	//返回拼接后的时间
+	return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+}
+
+//格式化ip的函数
+function formatIP(ip){
+	//startsWith()判断一个字符串是否以指定的字符开始
+	if(ip.startsWith('::1')){
+		return 'localhost';
+	}
+	else{
+		return ip.substr(7)
+	}
+}
+
+//如果没有上传头像,那么加载默认图片
+function defaultHeaderImage(th){
+	th.src = '../images/user.png'
+}
+
+
+
+//给每个问题添加点击事件
+$('.questions').on('click','.media[data-question]',function(){
+	if(username){
+		//用户已登录,跳转到回复页面
+		//把 data-question 的值存到 cookie中
+		$.cookie('question',$(this).data('question'));
+//		if(username != $('.media-heading').html()){
+			location.href = 'answer.html';
+//		}
+	}
+	else{
+		//用户未登录,请先登录,跳转到登录页面
+		location.href = 'login.html'
+	}
+})
+
+</script>

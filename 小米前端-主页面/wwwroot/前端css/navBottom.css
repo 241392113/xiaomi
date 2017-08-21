@@ -1,0 +1,41 @@
+			#navBottom{
+				width: 1226px;
+				height: 200px;
+				/*background-color: blue;*/
+				margin: 40px auto;
+			}
+			#navBottom span{
+				display: inline-block;
+				width: 200px;
+				height: 200px;
+				background-color: #5F5750;
+				position: relative;
+				text-align: center !important;
+			}
+			#navBottom  span a{
+				display: inline-block;
+				width: calc(200px / 3.2);
+				height: 80px;
+				margin-top: 10px;
+				/*background-color: green;*/
+				border-right: 1px solid gray;
+				margin-left: 0;
+			}
+			#navBottom span a p{
+				margin-left: 5px;
+				margin-top: 5px;
+				width: 50px;
+				height: 44px;
+				border-bottom: 1px solid gray;
+				
+			}
+			#navBottom span a img{
+				position: relative;
+				top: 5px;
+			}
+			#navBottom>a{
+				display: inline-block;
+				margin-left: 18px;
+				position: relative;
+				top: -70px;
+			}

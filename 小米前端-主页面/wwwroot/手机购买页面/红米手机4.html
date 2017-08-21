@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" type="text/css" href="手机购买页面.css"/>
+		<title>红米手机4</title>
+	</head>
+	<body>
+		<header>
+			<div>
+				<a href=""><img style="position: absolute;top: 22px;" src="../小米图片/footer/logo-footer.png" alt="" /></a>
+			</div>
+		</header>
+		
+		<div class="xmPhone-1">
+			<div>
+				<a href="小米MIX.html">小米MIX</a>
+				<a href="小米note 2.html">小米note 2</a>
+				<a href="小米5s.html">小米手机5s</a>
+				<a href="小米5s plus.html">小米手机5s Plus</a>
+				<a href="红米Note 4X.html">红米Note 4X</a>
+				<a href="红米Note 4.html">红米Note 4</a>
+				<a class="navBorder" href="红米手机4.html">红米手机4</a>
+				<a href="小米手机5.html">小米手机5</a>
+				<a href="小米Max.html">小米Max</a>
+			</div>
+		</div>
+		
+		<div class="xmPhone-2">
+				<div>
+					<span><img id="img" style="margin-top: 100px;" src="手机图片/红米手机4金色.png"/></span>
+					<span style="float: right;margin-top: 100px;">
+						<div style="position: relative;border-bottom: 1px solid gray;">
+							<b style="font-size: 40px;">购买红米手机4<i id="price" style="color: orangered;">&#x3000;999元</i></b>
+							<a href="" style="position: absolute;top:30px;right: 0;color: gray;">深入了解产品 > </a>
+						</div>
+						
+						<div style="height: 140px;">
+							<p style="color: darkgray;font-size: 13px;"><i style="font-size: 30px;color: black;font-style: normal;">1.选择版本</i><span id="span">全网通3.0，高通骁龙625 处理器，最高主频 2.0GHz，Adreno 506，650MHz</span></p>
+							<a class="border" href="javaScript: void(0)" name="note2" data-info='红米手机4 高配版 3GB内存+32GB容量' data-price='999元'>高配版 3GB内存+32GB容量</a>
+							<a href="javaScript: void(0)" name="note2" data-info='红米手机4 标准版 2GB内存+16GB容量' data-price='799元'>标准版 2GB内存+16GB容量</a>
+						</div>
+						
+						<div style="height: 200px;">
+							<p><i style="font-size: 30px;color: black;font-style: normal;">2.选择颜色</i></p>
+							<a class="border" href="javaScript: void(0)" name="color" data-color='金色'>金色</a>
+							<a href="javaScript: void(0)" name="color" data-color='银色' style="margin-top: 10px;">银色</a>
+							<a href="javaScript: void(0)" name="color" data-color='灰色' style="margin-top: 10px;">灰色</a>
+						</div>
+						
+						<div style="margin-top: 20px;">
+							<p style="font-size: 20px;">您选择了以下产品:</p>
+						</div>
+						
+						<form id="for" style="position: relative;top: -60px;" action="/buy" method="post">
+							<textarea name="content" id="p1" style="color: gray;width:400px;height: 30px;resize: none;border: none;"></textarea>
+							<br />
+							<input type="submit" value="立即购买"  style="width: 200px;line-height: 40px;background-color: orangered;color:white;font-size: 20px;text-align: center;border: none;"></input>
+							<input id="join" type="submit" value="加入购物车" style="width: 200px;line-height: 40px;background-color: orangered;color:white;font-size: 20px;text-align: center;margin-left:50px;border: none;"></input>
+						</form>
+					</span>
+				</div>
+			</div>
+			
+			<!--模态框-->	
+		<div class="modal fade" role="dialog" id="myModal">
+			 <div class="modal-dialog modal-sm">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title" id="myModalLabel">小米购物车</h4>
+					</div>
+					<div class="modal-body">
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>	
+			
+	</body>
+</html>
+
+<script src="../bootstrap/js/jquery-3.1.1.js" type="text/javascript"></script>
+<script src="../bootstrap/js/bootstrap.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	var note2 = document.getElementsByName('note2');
+	var color = document.getElementsByName('color');
+	var img = document.getElementById('img');
+	var price = document.getElementById('price');
+	var span = document.getElementById('span');
+	var p = document.getElementById('p1');
+	var phones = document.querySelectorAll('.xmPhone-1 a');
+	
+	var lastIndex = 0;
+	for(var i=0;i<note2.length;i++){
+		note2[i].addEventListener('click',function(){
+			note2[lastIndex].className = '';
+			this.className = 'border';
+			lastIndex = Array.from(note2).indexOf(this);
+			if(lastIndex == 1){
+				span.innerHTML = '全网通3.0，高通骁龙625 处理器，最高主频 2.0GHz，Adreno 506，650MHz';
+			}
+			else{
+				span.innerHTML = '全网通2.0，高通骁龙430 处理器，最高主频 1.4GHz，Adreno 505，450MHz';
+			}
+			price.innerHTML = note2[lastIndex].dataset.price;
+			p.innerHTML = note2[lastIndex].dataset.info
+		});
+	}
+	
+	var index =0;
+	for(var i=0;i<color.length;i++){
+		color[i].addEventListener('click',function(){
+			color[index].className = '';
+			this.className = 'border';
+			index = Array.from(color).indexOf(this);
+			if(index==0){
+				img.src = '手机图片/红米手机4金色.png'
+			}
+			else if(index==1){
+				img.src = '手机图片/红米手机4银色.png'
+			}
+			else if(index==2){
+				img.src = '手机图片/红米手机4灰色.png'
+			}
+			p.innerHTML = note2[lastIndex].dataset.info + ' ' + color[index].dataset.color + ' ' + note2[lastIndex].dataset.price;
+		});
+	}
+	
+	var topIndex=6
+	for(var i=0;i<phones.length;i++){
+		phones[i].addEventListener('click',function(){
+			phones[topIndex].className = '';
+			this.className = 'navBorder';
+			topIndex = Array.from(phones).indexOf(this);
+		})
+	}
+	
+	
+$('#join').click(function(){
+	$('#for').submit(function(event){
+		event.preventDefault();
+		
+		var data = $(this).serialize();
+		$.post('/buy',data,function(resData){
+			$('.modal-body').text(resData.message);
+			$('#myModal').modal('show').on('hide.bs.modal',function(){
+				if(resData.code == 1){
+					location.href = '../index.html';
+				}else if(resData.code == 3){
+					location.reload();
+				}
+			});
+		})
+		
+	})
+})
+	
+</script>

@@ -1,0 +1,25 @@
+		#carair-01{
+			width: 100%;
+			height: 1240px;
+			background-image: url(图片/carair-01.jpg);
+			background-size: 100% 100%;
+			position: relative;
+		}	
+		#carair-01>span{
+			display: inline-block;
+			/*background-color: red;*/
+			position: absolute;
+			top: 100px;
+			right: 300px;
+			text-align: center;
+		}
+		#carair-01 h4{
+			color: darkgray;
+		}
+		#carair-01 h2{
+			color: #2AABD2;
+			font-size: 60px;
+		}
+		#carair-01 h2 sub{
+			font-size: 30px;
+		}

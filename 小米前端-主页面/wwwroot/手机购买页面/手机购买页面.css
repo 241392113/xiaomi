@@ -1,0 +1,92 @@
+			body{
+				margin: 0;
+			}
+			header{
+				width: 100%;
+				height: 100px;
+				/*background-color: red;*/
+				border-bottom:3px solid orangered;
+			}
+			header>div{
+				width: 1200px;
+				height: 100px;
+				
+				margin: 0 auto;
+				/*background-color: orangered;*/
+				position: relative;
+			}
+			header a{
+				text-decoration: none;
+				color: gray;
+			}
+			
+			.xmPhone-1{
+				width: 100%;
+				height: 100px;
+			}
+			.xmPhone-1>div{
+				width: 1200px;
+				line-height: 100px;
+				margin: 0 auto;
+				/*background-color: red;*/
+				border-bottom: 1px solid darkgray;
+				box-sizing: border-box;
+			}
+			.xmPhone-1>div a{
+				display: inline-block;
+				width: calc(1200px / 9.294);
+				height: 100px;
+				text-align: center;
+				/*background-color: orangered;*/
+				text-decoration: none;
+				color: black;
+			}
+			
+			.xmPhone-2{
+				width: 100%;
+				height: 1000px;
+			}
+			.xmPhone-2>div{
+				width: 1200px;
+				margin: 0 auto;
+			}
+			.xmPhone-2 span div{
+				width: 600px;
+				height: 90px;
+				/*background-color: red;*/
+				margin: 0;
+				padding: 0;
+				margin-bottom: 10px;
+			}
+			.xmPhone-2 a{
+				display: inline-block;
+				text-decoration: none;
+				color: black;
+			}
+			.xmPhone-2 span div:nth-of-type(2) a{
+				display: inline-block;
+				width: 297px;
+				line-height: 60px;
+				/*background-color: orchid;*/
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid gainsboro;
+				box-sizing: border-box;
+			}
+			.xmPhone-2 span div:nth-of-type(3) a{
+				display: inline-block;
+				width: 297px;
+				line-height: 60px;
+				/*background-color: orchid;*/
+				text-align: center;
+				font-size: 16px;
+				border: 1px solid gainsboro;
+				box-sizing: border-box;
+			}
+			.border{
+				border: 1px solid orange !important;
+			}
+			.navBorder{
+				border-bottom: 2px solid orangered;
+				color: orangered !important;
+			}

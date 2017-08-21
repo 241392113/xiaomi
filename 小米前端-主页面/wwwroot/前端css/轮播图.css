@@ -1,0 +1,49 @@
+
+			#carousel{
+				width: 1226px;
+				height: 460px;
+				margin: 0 auto;
+				position: relative;
+				top: -450px;
+			}
+			#left{
+				position: relative;
+				top: -230px;
+				left: 230px;
+			}
+			#nav-left{
+				width: 200px;
+				position: relative;
+				top: 470px;
+				z-index: 10000;
+				background-color: gray;
+				opacity: 0.8;
+			}
+			#nav-left ul{
+				height: 460px;
+				list-style: none;
+				font-size: 15px;
+				margin-left: -40px;
+				
+			}
+			#nav-left ul li{
+				height: 40px;
+				line-height: 40px;
+				margin-left: 0;
+				text-align: center;
+				
+			}
+			#nav-left ul li a{
+				display: inline-block;
+				width: 150px;
+				text-decoration: none;
+				text-align: left;
+				color: ghostwhite;
+			}
+			#nav-left ul li:hover{
+				background-color: orangered;
+			}
+			#nav-left b{
+				position: absolute;
+				right: 10px;
+			}

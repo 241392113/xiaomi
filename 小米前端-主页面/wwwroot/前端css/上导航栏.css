@@ -1,0 +1,31 @@
+.xmPhone{
+				display: none;
+				width: 1226px;
+				height: 220px;
+				position: fixed;
+				left: calc((100% - 1226px)/2);
+				z-index: 100000;
+				background-color: white;
+			}
+			.xmPhone ul{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				float: left;
+			}
+			.xmPhone li{
+				width: 200px;
+				text-align: center;
+				margin-top: 10px;
+			}
+			.xmPhone ul li:nth-of-type(4){
+				color: orangered;
+			}
+			.xmPhone ul li:nth-of-type(2){
+				border-right: 1px solid gainsboro;
+			}
+			.xmborder{
+				border: 1px solid orangered;
+				color: orangered;
+				padding: 3px 5px;
+			}

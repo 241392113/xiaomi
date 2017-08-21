@@ -1,0 +1,39 @@
+			.rightNav{
+				display: none;
+				height: 460px;
+				position: absolute;
+				z-index: 1000;
+				left: 200px;
+				top: 470px;
+				padding: 20px 100px 0px 20px;
+				background-color: white;
+				
+			}
+			.rightNav ul{
+				margin: 0;
+				padding: 0;
+				height: 32px;
+				list-style: none;
+				height: 53px;
+			}
+			.rightNav ul li{
+				margin-left: 40px;
+				float: left;
+				line-height: 40px;
+			}
+			.rightNav ul li a{
+				color: black;
+			}
+			.xg{
+				display: inline-block;
+				width: 70px;
+				line-height: 15px;
+				text-align: center;
+				padding: 5px;
+				border: 1px solid orangered;
+				color: orangered !important;
+			}
+			.xg:hover{
+				background-color: orangered;
+				color: white !important;
+			}
